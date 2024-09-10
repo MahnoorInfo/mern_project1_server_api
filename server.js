@@ -2,9 +2,9 @@
 import express from 'express';
 import productRoutes from './routes/produts.js';
 import dbConfig from './config/dbConfig.js';
-import * as config from './config/config.js';
 
 const app = express();
+const port = 9090;
 
 
 
@@ -17,8 +17,8 @@ dbConfig();
 
 
 /* run server on port */
-app.listen(config.port, () => {
-    console.log(`Express is running on port ${config.port}`);
+app.listen(port, () => {
+    console.log(`Express is running on port ${port}`);
 })
 
 
