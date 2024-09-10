@@ -5,6 +5,7 @@ import dbConfig from './config/dbConfig.js';
 import * as config from './config/config.js';
 
 const app = express();
+const port = config.port || 9090;
 
 
 /* pass route to middleware */
@@ -16,8 +17,8 @@ dbConfig();
 
 
 /* run server on port */
-app.listen(config.port, () => {
-    console.log(`Express is running on port ${config.port}`);
+app.listen(port, () => {
+    console.log(`Express is running on port ${port}`);
 })
 
 
