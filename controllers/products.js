@@ -1,13 +1,14 @@
-import product from "../models/products.js";
+import Product from "../models/products.js";
 
 
 /**
  * 
  *  fetch all products
+ *  => GET /api/products
  */
 const fetchProducts = async (req, res) => {
   try {
-    const products = await product.find();
+    const products = await Product.find();
     res.status(200).json({ success: true, data: products})
   }
   catch (err) {
@@ -20,12 +21,13 @@ const fetchProducts = async (req, res) => {
 
 /**
  * 
- * fetch single product
+ * fetch single product by id
+ * => GET /api/products/param=id
  */
 const fetchProduct = async (req, res) => {
   try {
      const productId = req.params.id;
-     const productById = await product.findById(productId);
+     const productById = await Product.findById(productId);
      productById && res.status(200).json({ success: true, data: productById})
   }
   catch (err) {
@@ -34,6 +36,26 @@ const fetchProduct = async (req, res) => {
 }
 
 
+/**
+ * 
+ *   add new product , isAdmin : true , loggedIn : true
+ *   => POST /api/products 
+ */ 
 
-export { fetchProducts, fetchProduct }
+const addProduct = async (req,res) => {
+  try{
+//  console.log(req.body.title);
+  const { title,  subTitle, description, brand, price, category } = req.body;
+
+     const addNewProduct = await new Product({title, subTitle, description, brand, price, category}).save();
+     res.status(201).json({success:true, data: addNewProduct});
+  }
+  catch(error){
+   res.status(201).json({error:"product did not added"})
+  }
+}
+
+
+
+export { fetchProducts, fetchProduct, addProduct }
 

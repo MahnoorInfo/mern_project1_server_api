@@ -5,37 +5,27 @@ const { Schema, model, ObjectId } = mongoose;
 const productSchema = new Schema({
 
 title: {
-   type: String,
-   required : true,
-   minLength : 5,
-   maxLength: 100
+   type: String, required : true, minLength : 5, maxLength: 500
 },
 
 subTitle: {
-    type: String,
-    required: true,
-    minLength: 5,
-    maxLength: 100
+    type: String, required: true, minLength: 5, maxLength: 500
 },
 
 price: {
-    type : Number ,
-    required: true
+    type : Number , required: false
 },
 
 category: {
-    type: String,
-    required:true
+    type: String, required: false
 },
 
 brand: {
-    type: String,
-    required : true
+    type: String, required : false
 },
  
 description: {
-    type: String,
-    required: true
+    type: String, required: false
 },
 
 images: [{}],
@@ -43,34 +33,24 @@ images: [{}],
 reviews : [{}],
 
 noOfReviews: {
-    type: Number,
-    required: true,
-    default: 0
+    type: Number, default: 0
 },
 
 stock: {
-    type: Number,
-    required: true,
-    default: 0
-},
-
-
-onSale: {
-    type: Boolean,
-    default: false
-     
+    type: Number, default: 0
 },
 
 rating: {
-    type: Number,
-    required: true,
-    default: 5
+    type: Number, default: 5
 },
 
 discount: {
-    type: Number,
-    required: false,
-    default: 0
+    type: Number, default: 0
+},
+
+onSale: {
+    type: Boolean, default: false
+     
 },
 
 isNewProduct: {
