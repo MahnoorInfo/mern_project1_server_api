@@ -17,13 +17,11 @@ app.use(cors());
 app.use(morgan('dev'));   /** use morgan for logging */
 app.use(express.json()); 
 
-/* pass route to middleware */
-app.use("/api/products", productRoutes);
+app.use("/api/products", productRoutes);    /* pass route to middleware */
 
-DBConfig();      /* mongodb connection */
+DBConfig();    /* mongodb connection */
 
-/* run server on port */
-app.listen(port, () => {
+app.listen(port, () => {    /* run server on port */
     console.log(`Express is running on port ${port}`);
 })
 
