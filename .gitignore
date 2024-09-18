@@ -1,0 +1,6 @@
+
+# specific nodde modules
+node_modules/
+
+# specific secure variables
+config/config.js

@@ -10,7 +10,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 
 
-const port = config.port || 9090;
+const port = config.PORT || 9090;
 const app = express();
 
 app.use(cors());

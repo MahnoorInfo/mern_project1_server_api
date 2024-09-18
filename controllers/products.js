@@ -9,7 +9,7 @@ import Product from "../models/products.js";
 const fetchProducts = async (req, res) => {
   try {
     const products = await Product.find();
-    res.status(200).json({ success: true, data: products})
+    res.status(200).json({ success: true, data: products, count: products.length})
   }
   catch (err) {
     res.status(400).json({
@@ -45,7 +45,7 @@ const fetchProduct = async (req, res) => {
 const addProduct = async (req,res) => {
   try{
 //  console.log(req.body.title);
-  const { title,  subTitle, description, brand, price, category } = req.body;
+    const { title,  subTitle, description, brand, price, category } = req.body;
 
      const addNewProduct = await new Product({title, subTitle, description, brand, price, category}).save();
      res.status(201).json({success:true, data: addNewProduct});
