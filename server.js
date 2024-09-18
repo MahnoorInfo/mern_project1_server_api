@@ -1,7 +1,7 @@
 
 import express from 'express';
 
-import DBConfig from './config/DBConfig.js';
+import DatabaseConfig from './config/DatabaseConfig.js';
 import * as config from './config/config.js';
 import productRoutes from './routes/products.js';
 
@@ -19,7 +19,7 @@ app.use(express.json());
 
 app.use("/api/products", productRoutes);    /* pass route to middleware */
 
-DBConfig();    /* mongodb connection */
+DatabaseConfig();    /* mongodb connection */
 
 app.listen(port, () => {    /* run server on port */
     console.log(`Express is running on port ${port}`);
