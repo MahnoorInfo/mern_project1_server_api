@@ -4,3 +4,6 @@ node_modules/
 
 # specific secure variables
 config/config.js
+
+# package-lock.json file
+package-lock.json
