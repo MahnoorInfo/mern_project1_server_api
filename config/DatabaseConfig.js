@@ -4,8 +4,8 @@ import * as config from './config.js';
 
 
 const DatabaseConfig = () => {
-    mongoose.connect(config.MONGOODB_LOCAL)
-    .then( () => { console.log( ' database connected ' ) } )
+    mongoose.connect(config.MONGOODB_CLOUD)
+    .then( (conn) => { console.log( ` database connected ${conn.connection.host}` ) } )
     .catch( () => { console.log( ' database connection failed ' ) } )
 }
 
